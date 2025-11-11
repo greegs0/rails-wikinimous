@@ -1,0 +1,23 @@
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="mb-0"><%= @article.title %></h1>
+
+    <div class="btn-group">
+      <%= link_to edit_article_path(@article), class: "btn btn-outline-secondary" do %>
+        <i class="fa fa-pen"></i> Edit
+      <% end %>
+
+      <%= link_to article_path(@article),
+                  data: { turbo_method: :delete, turbo_confirm: "Supprimer cet article ?" },
+                  class: "btn btn-outline-danger" do %>
+        <i class="fa fa-trash"></i> Delete
+      <% end %>
+    </div>
+  </div>
+
+  <p><%= @article.content %></p>
+
+  <%= link_to articles_path, class: "btn btn-link" do %>
+    <i class="fa fa-arrow-left"></i> Back
+  <% end %>
+</div>
